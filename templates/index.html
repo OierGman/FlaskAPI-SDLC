@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Testing API/JSON using Falcon Framework</title>
+</head>
+<body>
+
+    <H1>Where is the location?</H1>
+    <input type="text" id="place"> <br><br>
+    <H1>Property Type?</H1>
+    <input type="text" id="type"> <br><br>
+    <H1>Number of Rooms?</H1>
+    <input type="text" id="room"> <br><br>
+    <button onclick="myFunc()"> Submit </button>
+
+
+    <style>
+        body{background-color: gray; text-align: center; color: white;}
+    </style>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script>
+        function myFunc(){
+            const place = document.getElementById("place").value;
+            const type = document.getElementById("type").value;
+            const room = document.getElementById("room").value;
+
+             const bb = {
+                place,
+                type,
+                room
+            }
+
+            const cc = JSON.stringify(bb);
+            console.log(bb);
+            console.log(cc);
+
+            window.alert(cc)
+
+            $.ajax(
+            {
+                url: "/test",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(cc)
+            }
+            );
+        }
+    </script>
+</body>
