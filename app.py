@@ -1,7 +1,7 @@
 import json
 from flask import request
 from flask import Flask, render_template
-from DataCollection import result_prediction
+from MathEquation import result_prediction
 
 app = Flask(__name__)
 
