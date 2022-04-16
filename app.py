@@ -12,8 +12,6 @@ def index():
 @app.route('/', methods=['POST', 'GET'])
 def test():
     if request.method == "POST":
-        # output = request.get_json()
-        # result = json.loads(output)
         room_int = request.form["room"]
         prop_type = request.form["type"]
         location = request.form["place"]
@@ -29,7 +27,7 @@ def test():
         return render_template('index.html')
 
 
-@app.route("/<location><rooms>bed<p_type>")
+@app.route("/<location>:<rooms>bed:<p_type>")
 def results(location, rooms, p_type):
     prediction = result_prediction(int(rooms), p_type)
     print(prediction)
