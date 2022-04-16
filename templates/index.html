@@ -5,18 +5,15 @@
     <title>Testing API/JSON using Falcon Framework</title>
 </head>
 <body>
+<form action="#" method="post">
         <H1>Where is the location?</H1>
-        <input type="text" id="place"> <br><br>
+        <input type="text" name="place"> <br><br>
         <H1>Property Type?</H1>
-        <input type="text" id="type"> <br><br>
+        <input type="text" name="type"> <br><br>
         <H1>Number of Rooms?</H1>
-        <input type="text" id="room"> <br><br>
-        <button onclick="myFunc()"> Submit </button>
-        <br><br>
-        <br><br>
-        <H1>The Value Of Your Property Is:</H1> <br><br>
-        <p>{{x}}</p>
-
+        <input type="text" name="room"> <br><br>
+        <input type="submit" value="submit">
+</form>
     <style>
         body{background-color: gray; text-align: center; color: white;}
     </style>
@@ -38,6 +35,7 @@
             const cc = JSON.stringify(bb);
             console.log(cc);
 
+
             $.ajax(
             {
                 url: "/test",
@@ -46,6 +44,7 @@
                 data: JSON.stringify(cc)
             }
             );
+
         }
     </script>
 </body>
