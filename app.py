@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('tool.html')
+
+
+@app.route('/tool.html', methods=['GET'])
+def main_page():
+    return redirect('/')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -27,11 +32,16 @@ def test():
         return render_template('index.html')
 
 
-@app.route("/<location>:<rooms>bed:<p_type>")
+@app.route("/place:<location>:room:<rooms>:type:<p_type>")
 def results(location, rooms, p_type):
     prediction = result_prediction(int(rooms), p_type)
     print(prediction)
     return render_template('resultsPage.html', content=prediction)
+
+
+@app.route("/place::room::type:")
+def error():
+    return redirect(url_for("main_page"))
 
 
 if __name__ == "__main__":

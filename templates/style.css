@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Results</title>
-    <div class="topnav" id="myTopnav">
-  <a href="/" class="active">Prediction Tool</a>
-</div>
-</head>
-<body>
-    <form action="/results" method="get">
-        <H1>The Value Of Your Property Is:</H1> <br><br>
-        <h1> £{{content}} </h1>
-    </form>
-    <style>
-        body{text-align: center}
-
-        * {
+* {
   box-sizing: border-box;
 }
 
@@ -76,12 +59,12 @@ h3 { color: white;
 .grid-container {
   display: grid;
   margin-top: 1%;
-  grid-template-areas:
-    'header header header header header header'
-    'left left middle middle right right'
+  grid-template-areas: 
+    'header header header header header header' 
+    'left left middle middle right right' 
     'footer footer footer footer footer footer';
   /* grid-column-gap: 10px; - if you want gap between the columns */
-}
+} 
 
 .left,
 .middle,
@@ -119,11 +102,11 @@ h3 { color: white;
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
   .grid-container  {
-    grid-template-areas:
-      'header header header header header header'
-      'left left left left left left'
-      'middle middle middle middle middle middle'
-      'right right right right right right'
+    grid-template-areas: 
+      'header header header header header header' 
+      'left left left left left left' 
+      'middle middle middle middle middle middle' 
+      'right right right right right right' 
       'footer footer footer footer footer footer';
   }
 }
@@ -197,7 +180,7 @@ label {
   border-radius: 4px;
   cursor: pointer;
  }
- button:hover  {
+ button:hover  { 
   background-color:#01949A;
   }
 form {
@@ -220,7 +203,3 @@ body::-webkit-scrollbar {
   width: 50%;
   margin-left: 25%;
   margin-right: 25%; }
-
-    </style>
-</body>
-</html>
