@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./venv"
+    ],
+    "liveServer.settings.port": 5502
+}

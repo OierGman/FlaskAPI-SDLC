@@ -1,9 +1,12 @@
 from flask import request, Flask, render_template, redirect, url_for
+import os
 from MathEquation import roomtypePrediction
 import time
 
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='static')
 
 
 @app.route('/')
@@ -47,7 +50,7 @@ def results(location, rooms, p_type):
         print(str(x) + ", " + p_type + ", " + location)
         print(roomtypePrediction(x, p_type, location))
         prediction = roomtypePrediction(x, p_type, location)
-        time.sleep(0.5)
+        time.sleep(3)
         print("prediction:" + str(prediction))
         return render_template('resultsPage.html', content=prediction)
 
