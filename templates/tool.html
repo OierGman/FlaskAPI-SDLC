@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
+<link rel="stylesheet" type="text/css" href="/style.css">
 <link rel="stylesheet" href="style.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 <html>
 <title>Property Value Prediction Tool</title> 
 
@@ -9,28 +11,24 @@
 <div class="topnav" id="myTopnav">
   <a href="/" class="active">Prediction Tool</a>
 </div>
+<link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
+  <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
 </head>
 
 <body>
-
 <div class="header">
     <h3>Prediction Tool</h3>
-  </div>
-<div id="map"><script type="text/javascript">var map = L.map('map').setView([51.2798, 1.0828], 13);
+</div>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-</script></div>
-
+  <div id="map"></div>
 
 <form action="#" method="post">
         
     <label>Location</label>
-    <select id="place" name="place">
+    <select id="place" name="place" onchange="myFunc()">
     <option value="0">SELECT LOCATION</option>
     <option value="dartford">Dartford</option>
-    <option value="seavenoaks">Sevenoaks</option>
+    <option value="sevenoaks">Sevenoaks</option>
     <option value="edenbridge">Edenbridge</option>
     <option value="tonbridge">Tonbridge</option>
     <option value="southborough">Southborough</option>
@@ -43,34 +41,22 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     <option value="paddockwood">Paddock Wood</option>
     <option value="maidstone">Maidstone</option>
     <option value="bearsted">Bearsted</option>
-    <option value="goudhurst">Goudhurst</option>
     <option value="cranbrook">Cranbrook</option>
     <option value="staplehurst">Staplehurst</option>
-    <option value="benenden">Benenden</option>
-    <option value="headcorn">Headcorn</option>
     <option value="sheerness">Sheerness</option>
     <option value="minsteronsea">Minster on Sea</option>
     <option value="sittingbourne">Sittingbourne</option>
     <option value="faversham">Faversham</option>
     <option value="brogdale">Brogdale</option>
-    <option value="lenham">Lenham</option>
-    <option value="charing">Charing</option>
-    <option value="chilham">Chilham</option>
     <option value="ashford">Ashford</option>
     <option value="kingsnorth">Kingsnorth</option>
-    <option value="woodchurch">Woodchurch</option>
-    <option value="lydd">Lydd</option>
     <option value="newromney">New Romney</option>
-    <option value="dymchurch">Dymchurch</option>
-    <option value="lympne">Lympne</option>
     <option value="whitstable">Whitstable</option>
     <option value="hernebay">Herne Bay</option>
     <option value="canterbury">Canterbury</option>
     <option value="hythe">Hythe</option>
     <option value="folkestone">Folkestone</option>
     <option value="hawkinge">Hawkinge</option>
-    <option value="aylesham">Aylesham</option>
-    <option value="wingham">Wingham</option>
     <option value="birchington">Birchington</option>
     <option value="minster">Minster</option>
     <option value="sandwich">Sandwich</option>
@@ -104,230 +90,83 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
     <button onclick="myFunc()" > Submit </button>
     </form>
-<style>
-    * {
-  box-sizing: border-box;
-}
 
-body {
-  background-color: #05445E;
-  font-family: helvetica
-}
-
-h1,
-h2,
-h3 { color: white;
-   font-family: monaco, monospace;}
-
-/*  topbar */
-.topnav {
-  overflow: hidden;
-  border-radius: 25px;
-
-}
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color:#01949A;
-  color: white;
-}
-/* Add an active class to highlight the current page */
-.topnav a.active {
-  background-color: #DB1F48;
-  color: white;
-}
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-  display: none;
-}
-
-/* INDEX */
-
-/*  header */
-.header {
-  text-align: center;
-  font-size: 35px;
-  border: 5px;
-  color: black;
-  grid-area: header;
-}
-/*  body content */
-
-/* The grid container */
-.grid-container {
-  display: grid;
-  margin-top: 1%;
-  grid-template-areas:
-    'header header header header header header'
-    'left left middle middle right right'
-    'footer footer footer footer footer footer';
-  /* grid-column-gap: 10px; - if you want gap between the columns */
-}
-
-.left,
-.middle,
-.right {
-  padding: 10px;
-  margin: 10px;
-}
-
-/* Style the left column */
-.left {
-  grid-area: left;
-  border: 2px solid white;
-  border-radius: 5px;
-  color: white;
-}
-
-/* Style the middle column */
-.middle {
-  grid-area: middle;
-    border: 2px solid white;
-  border-radius: 5px;
-  color: white;
-}
-
-
-/* Style the right column */
-.right {
-  grid-area: right;
-    border: 2px solid white;
-  border-radius: 5px;
-  color:white;
-}
-
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  .grid-container  {
-    grid-template-areas:
-      'header header header header header header'
-      'left left left left left left'
-      'middle middle middle middle middle middle'
-      'right right right right right right'
-      'footer footer footer footer footer footer';
-  }
-}
-
-/* MEET THE TEAM SECTION */
-/* Three columns side by side */
-.column {
-  float: left;
-  width: 16.5%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-/* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-
-/* Add some shadows to create a card effect */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #01B0D3;
-}
-
-/* Some left and right padding inside the container */
-.container {
-  padding: 0 18px;
-  width: 16.5%
-}
-
-/* Clear floats */
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-
-
-/*  PREDICTION PAGE */
-
-/*  Form */
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  background-color: #DB1F48;
-  color: white;
-  cursor: pointer;
-}
-
-label {
-  cursor: default;
-  color:white;
-}
- button {
-  width: 100%;
-  background-color: #E5DDC8;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
- }
- button:hover  {
-  background-color:#01949A;
-  }
-form {
-  border: 2px solid white;
-  border-radius: 5px;
-  background-color: #05445E;
-  padding: 20px;
-  width: 50%;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 1%;
-}
-/*  hide scroll bar */
-body::-webkit-scrollbar {
-  display: none;
-}
-
-#map { height: 400px;
-  padding: 20px;
-  width: 50%;
-  margin-left: 25%;
-  margin-right: 25%; }
-
-</style>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 <script>
-        function myFunc(){
-            const place = document.getElementById("place").value;
-            const type = document.getElementById("type").value;
-            const room = document.getElementById("room").value;
+  // initialize the map
+  var map = L.map('map').setView([51.2798, 1.0828], 13);
 
-             const bb = {
-                place,
-                type,
-                room
-            }
+  // load a tile layer
+  var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(map);
 
-            const cc = JSON.stringify(bb);
-            console.log(cc);
-            window.alert(msg)
+  var layerGroup = L.layerGroup().addTo(map);
+
+    function myFunc(){
+      var place = document.getElementById("place").value;
+      console.log(place);
+      layerGroup.clearLayers();
+
+      var longLat = {
+        "dartford": [51.4443059, 0.21807],
+        "sevenoaks": [51.2745218, 0.1961166],
+        "edenbridge": [51.1907598, 0.072979],
+        "tonbridge": [51.1889529, 0.2735876],
+        "ashford": [51.148555, 0.8722566],
+        "aylesford": [51.3093091, 0.4867332],
+        "bearsted":[51.2720563, 0.5805457],
+        "birchington": [51.3738021, 1.3071248],
+        "broadstairs": [51.3586758, 1.4407855],
+        "brogdale": [51.3055579, 0.8801132],
+        "canterbury": [51.2800275, 1.0802533],
+        "cranbrook": [51.0965459, 0.5321089],
+        "deal": [51.2239544, 1.4027344],
+        "dover": [51.1251275, 1.3134228],
+        "faversham": [51.3144088, 0.8911894],
+        "folkestone": [51.0791335, 1.1794073],
+        "hawkinge": [51.1154427, 1.1637543],
+        "hernebay": [51.3719507, 1.1306951],
+        "hythe":  [51.0691421, 1.0841634],
+        "kingshill": [51.3774552, 0.784425],
+        "kingsnorth": [51.1167155, 0.8606184],
+        "maidstone": [51.2748258, 0.5231646],
+        "margate": [51.3878174, 1.3819699],
+        "minster": [51.4217412, 0.8120475],
+        "minsteronsea": [51.4168969, 0.808862],
+        "newromney": [50.9851198, 0.9426566],
+        "paddockwood": [51.1810484, 0.3889964],
+        "pembury": [51.1415015, 0.323818],
+        "ramsgate": [51.3334726, 1.4196476],
+        "royaltonbridgewells": [51.1492065, 0.3078256],
+        "sandwich": [51.2752527, 1.3408309],
+        "sheerness": [51.4391704, 0.7585715],
+        "sittingbourne": [51.3397366, 0.7342319],
+        "snodland": [51.3349376, 0.4326668],
+        "southborough": [51.1642824, 0.2633735],
+        "staplehurst": [51.1636637, 0.5562139],
+        "tonbridge": [51.1889529, 0.2735876],
+        "westmalling": [51.2875308, 0.404508],
+        "whitfield": [51.159063, 1.293465],
+        "whitstable": [51.3606286, 1.0240626],
+      }
+            
+      console.log(longLat[place]);
+      
+      map.flyTo(longLat[place], 11);
+      L.marker(longLat[place]).addTo(layerGroup); 
+            
+      var circle = L.circle(longLat[place], {
+        color: '4cc5fa',
+        fillColor: 'c0f5f3',
+        fillOpacity: 0.1,
+        radius: 6000
+      }).addTo(layerGroup);
         }
 </script>
 </body>
