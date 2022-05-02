@@ -1,5 +1,7 @@
 from flask import request, Flask, render_template, redirect, url_for
-from MathEquation import result_prediction
+from MathEquation import roomtypePrediction
+import time
+
 
 app = Flask(__name__)
 
@@ -29,19 +31,25 @@ def test():
         print("....................")
         return redirect(url_for("results", location=location, rooms=room_int, p_type=prop_type))
     else:
-        return render_template('index.html')
+        return render_template('tool.html')
 
 
-@app.route("/place:<location>:room:<rooms>:type:<p_type>")
+@app.route("/place:<location>:room:<rooms>:type:<p_type>", methods=['POST', 'GET'])
 def results(location, rooms, p_type):
-    prediction = result_prediction(int(rooms), p_type)
-    print(prediction)
-    return render_template('resultsPage.html', content=prediction)
-
-
-@app.route("/place::room::type:")
-def error():
-    return redirect(url_for("main_page"))
+    if location == "0":
+        return redirect(url_for("main_page"))
+    elif rooms == "0":
+        return redirect(url_for("main_page"))
+    elif p_type == "0":
+        return redirect(url_for("main_page"))
+    else:
+        x = int(rooms)
+        print(str(x) + ", " + p_type + ", " + location)
+        print(roomtypePrediction(x, p_type, location))
+        prediction = roomtypePrediction(x, p_type, location)
+        time.sleep(0.5)
+        print("prediction:" + str(prediction))
+        return render_template('resultsPage.html', content=prediction)
 
 
 if __name__ == "__main__":

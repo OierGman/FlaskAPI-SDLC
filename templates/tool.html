@@ -28,7 +28,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         
     <label>Location</label>
     <select id="place" name="place">
-    <option value="">SELECT LOCATION</option>
+    <option value="0">SELECT LOCATION</option>
     <option value="dartford">Dartford</option>
     <option value="seavenoaks">Sevenoaks</option>
     <option value="edenbridge">Edenbridge</option>
@@ -84,7 +84,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     </select>
     <label>Bedrooms</label>
     <select id="text" name="room">
-    <option value="">SELECT BEDROOMS</option>
+    <option value="0">SELECT BEDROOMS</option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -94,16 +94,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
     <label>Type of house</label>
     <select id="type" name="type">
-    <option value="">SELECT TYPE OF PROPERTY</option>
-    <option value="Detached">Detached</option>
-    <option value="Semi-Detached">Semi-Detached</option>
-    <option value="Terraced">Terraced</option>
-    <option value="Flat">Flat</option>
-    <option value="Bungalow">Bungalow</option>
+    <option value="0">SELECT TYPE OF PROPERTY</option>
+    <option value="d">Detached</option>
+    <option value="sd">Semi-Detached</option>
+    <option value="t">Terraced</option>
+    <option value="f">Flat</option>
+    <option value="b">Bungalow</option>
     </select>
 
     <button onclick="myFunc()" > Submit </button>
-    <label> {{message}} </label>
     </form>
 <style>
     * {
@@ -328,6 +327,7 @@ body::-webkit-scrollbar {
 
             const cc = JSON.stringify(bb);
             console.log(cc);
+            window.alert(msg)
         }
 </script>
 </body>
