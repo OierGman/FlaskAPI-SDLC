@@ -8,89 +8,95 @@
 <title>Property Value Prediction Tool</title> 
 
 <head>
-<div class="topnav" id="myTopnav">
-  <a href="/" class="active">Prediction Tool</a>
-</div>
 <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
   <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
+  <div class="header">
+    <a>Property Value Prediction Tool</a>
+  </div>
 </head>
 
 <body>
-<div class="header">
-    <h3>Prediction Tool</h3>
-</div>
-
   <div id="map"></div>
 
-<form action="#" method="post">
-        
-    <label>Location</label>
-    <select id="place" name="place" onchange="myFunc()">
-    <option value="0">SELECT LOCATION</option>
-    <option value="dartford">Dartford</option>
-    <option value="sevenoaks">Sevenoaks</option>
-    <option value="edenbridge">Edenbridge</option>
-    <option value="tonbridge">Tonbridge</option>
-    <option value="southborough">Southborough</option>
-    <option value="royaltonbridgewells">Royal Tonbridge Wells</option>
-    <option value="pembury">Pembury</option>
-    <option value="snodland">Snodland</option>
-    <option value="aylesford">Aylesford</option>
-    <option value="kingshill">Kings Hill</option>
-    <option value="westmalling">West Malling</option>
-    <option value="paddockwood">Paddock Wood</option>
-    <option value="maidstone">Maidstone</option>
-    <option value="bearsted">Bearsted</option>
-    <option value="cranbrook">Cranbrook</option>
-    <option value="staplehurst">Staplehurst</option>
-    <option value="sheerness">Sheerness</option>
-    <option value="minsteronsea">Minster on Sea</option>
-    <option value="sittingbourne">Sittingbourne</option>
-    <option value="faversham">Faversham</option>
-    <option value="brogdale">Brogdale</option>
-    <option value="ashford">Ashford</option>
-    <option value="kingsnorth">Kingsnorth</option>
-    <option value="newromney">New Romney</option>
-    <option value="whitstable">Whitstable</option>
-    <option value="hernebay">Herne Bay</option>
-    <option value="canterbury">Canterbury</option>
-    <option value="hythe">Hythe</option>
-    <option value="folkestone">Folkestone</option>
-    <option value="hawkinge">Hawkinge</option>
-    <option value="birchington">Birchington</option>
-    <option value="minster">Minster</option>
-    <option value="sandwich">Sandwich</option>
-    <option value="whitfield">Whitfield</option>
-    <option value="dover">Dover</option>
-    <option value="deal">Deal</option>
-    <option value="ramsgate">Ramsgate</option>
-    <option value="broadstairs">Broadstairs</option>
-    <option value="margate">Margate</option>
-
-    </select>
-    <label>Bedrooms</label>
-    <select id="text" name="room">
-    <option value="0">SELECT BEDROOMS</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    </select>
-
-    <label>Type of house</label>
-    <select id="type" name="type">
-    <option value="0">SELECT TYPE OF PROPERTY</option>
-    <option value="d">Detached</option>
-    <option value="sd">Semi-Detached</option>
-    <option value="t">Terraced</option>
-    <option value="f">Flat</option>
-    <option value="b">Bungalow</option>
-    </select>
-
-    <button onclick="myFunc()" > Submit </button>
+  <div class="fdiv">
+    <form action="#" method="post">
+    <div class="form">
+      <div class="title">Welcome</div>
+      <div class="subtitle">Let's value your property!</div>
+      <div class="input-container ic1">
+        <select id="place" name="place" onchange="myFunc()" class="input">
+        <option value="0">SELECT LOCATION</option>
+        <option value="dartford">Dartford</option>
+        <option value="sevenoaks">Sevenoaks</option>
+        <option value="edenbridge">Edenbridge</option>
+        <option value="tonbridge">Tonbridge</option>
+        <option value="southborough">Southborough</option>
+        <option value="royaltonbridgewells">Royal Tonbridge Wells</option>
+        <option value="pembury">Pembury</option>
+        <option value="snodland">Snodland</option>
+        <option value="aylesford">Aylesford</option>
+        <option value="kingshill">Kings Hill</option>
+        <option value="westmalling">West Malling</option>
+        <option value="paddockwood">Paddock Wood</option>
+        <option value="maidstone">Maidstone</option>
+        <option value="bearsted">Bearsted</option>
+        <option value="cranbrook">Cranbrook</option>
+        <option value="staplehurst">Staplehurst</option>
+        <option value="sheerness">Sheerness</option>
+        <option value="minsteronsea">Minster on Sea</option>
+        <option value="sittingbourne">Sittingbourne</option>
+        <option value="faversham">Faversham</option>
+        <option value="brogdale">Brogdale</option>
+        <option value="ashford">Ashford</option>
+        <option value="kingsnorth">Kingsnorth</option>
+        <option value="newromney">New Romney</option>
+        <option value="whitstable">Whitstable</option>
+        <option value="hernebay">Herne Bay</option>
+        <option value="canterbury">Canterbury</option>
+        <option value="hythe">Hythe</option>
+        <option value="folkestone">Folkestone</option>
+        <option value="hawkinge">Hawkinge</option>
+        <option value="birchington">Birchington</option>
+        <option value="minster">Minster</option>
+        <option value="sandwich">Sandwich</option>
+        <option value="whitfield">Whitfield</option>
+        <option value="dover">Dover</option>
+        <option value="deal">Deal</option>
+        <option value="ramsgate">Ramsgate</option>
+        <option value="broadstairs">Broadstairs</option>
+        <option value="margate">Margate</option>
+        </select>
+        <div class="cut"></div>
+        <label for="Location" class="placeholder">Location</label>
+      </div>
+      <div class="input-container ic2">
+        <select id="Bedrooms" name="room" class="input">
+          <option value="0">SELECT BEDROOMS</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <div class="cut"></div>
+        <label for="Bedrooms" class="placeholder">Bedrooms</label>
+      </div>
+      <div class="input-container ic2">
+        <select id="type" name="type" class="input">
+          <option value="0">SELECT TYPE OF PROPERTY</option>
+          <option value="d">Detached</option>
+          <option value="sd">Semi-Detached</option>
+          <option value="t">Terraced</option>
+          <option value="f">Flat</option>
+          <option value="b">Bungalow</option>
+        </select>
+        <div class="cut cut-short"></div>
+        <label for="type" class="placeholder">Type
+      </div>
+      <button class="submit">submit</button>
+    </div>
     </form>
-
+</div>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 <script>
   // initialize the map
@@ -100,7 +106,7 @@
   var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			'Imagery Â© <a href="https://www.mapbox.com/">Mapbox</a>',
 		id: 'mapbox/streets-v11',
 		tileSize: 512,
 		zoomOffset: -1
