@@ -18,6 +18,100 @@ body {
   background: #ecf3f3;
 }
 
+/* Form Styling for footer */
+
+.content {
+  min-height: 100%;
+}
+.content-inside {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+/* footer styling */
+
+.footer {
+  height: 30%;
+  margin-top: 35rem;
+  width: 100%;
+  background-color: #303245;
+  font-family: system-ui,"Segoe UI";
+  font-weight: 500px;
+  animation :transitionIn 0.75s;
+  bottom: 0;
+  padding: 10px;
+}
+
+
+.footer .content {
+  display: flex;
+  justify-content: space-evenly;
+  height: 10%;
+}
+
+.footer .content p {
+  margin-bottom: 1.3rem;
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.footer .content a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.footer .content a:hover {
+  border-bottom: 1px solid #06b;
+}
+
+.footer .content h4 {
+  margin-bottom: 1.3rem;
+  font-size: 19px;
+  color: white;
+  
+}
+
+footer {
+  text-align: center;
+}
+
+footer hr {
+  margin: 2rem 0;
+}
+
+@media (max-width: 767px) {
+  .footer .content {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  .footer {
+    position: absolute;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer .content,
+  .footer {
+    font-size: 14px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .footer {
+    position: unset;
+  }
+}
+
+.container-text {
+
+  background-color: #303245;
+  width: 100%;
+  font-family:"Segoe UI";
+  padding:0.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
 /* HEADER
 
 /* Style the header with a grey background and some padding */
