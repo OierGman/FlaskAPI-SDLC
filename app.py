@@ -50,7 +50,6 @@ def results(location, rooms, p_type):
         print(str(x) + ", " + p_type + ", " + location)
         print(roomtypePrediction(x, p_type, location))
         prediction = roomtypePrediction(x, p_type, location)
-        time.sleep(3)
         print("prediction:" + str(prediction))
         return render_template('resultsPage.html', content=prediction)
 
